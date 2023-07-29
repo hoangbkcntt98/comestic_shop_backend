@@ -175,9 +175,8 @@ class AuthController extends Controller
         }
         Auth::login($user, true);
         $user = Auth::user();
-        dd($res);
         $res = [];
-        $res['token'] = $user->createToken('authToken',['user']);
+        $res['token'] = $user->createToken('authToken');
         $res['name'] = $user->name;
         return $this->sendSuccessResponse($res);
     }
